@@ -1,0 +1,13 @@
+it("deletes a to-do", function () {
+    cy.visit("/")
+    cy.addTodo("Delete this to-do")
+    cy.toggleTodoCompleted("Delete this to-do")
+    cy.archiveCompletedTodo("Delete this to-do")
+    cy.findByRole("link", { name: "Archive" }).click()
+    cy.deleteArchivedTodo("Delete this to-do")
+    cy.document().its("body")
+        .should("not.contain", "Delete this to-do")
+    cy.findByRole("link", { name: "Home" }).click()
+    cy.document().its("body")
+        .should("not.contain", "Delete this to-do")
+})

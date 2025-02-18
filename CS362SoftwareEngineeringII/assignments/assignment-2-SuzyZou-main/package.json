@@ -1,0 +1,6 @@
+{
+  "name": "Assignment 1",
+  "version": "1.0.0",
+  "description": "Unit tests for user signup functions",
+  "scripts": {"test": "jest"}
+}

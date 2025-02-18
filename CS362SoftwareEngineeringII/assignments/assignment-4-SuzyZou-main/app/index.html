@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Roman Numeral Calculator</title>
+        <meta
+            name="viewport"
+            content="width=400, height=600, initial-scale=0.8, maximum-scale=1"
+        />
+        <meta name="viewport" content="width=device-width" />
+
+        <link rel="stylesheet" href="app.css">
+        <link rel="stylesheet" href="calculator.css">
+        <script src="calculator.js" defer></script>
+    </head>
+
+    <body>
+        <div id="app">
+            <nav>
+                <ul class="nav-list">
+                    <li class="nav-item nav-history"><a href="history">History</a></li>
+                    <li class="nav-item nav-login"><a href="login">Login</a></li>
+                    <li class="nav-item nav-logout"><a href="logout">Logout</a></li>
+                    <li class="nav-item nav-register"><a href="register">Register</a></li>
+                    <li class="nav-item nav-unregister"><a href="unregister">Unegister</a></li>
+                </ul>
+            </nav>
+            <div class="calculator">
+                <div class="display-container">
+                    <div id="text-display"></div>
+                    <div id="roman-mode-display"></div>
+                </div>
+                <div class="calculator-keypad">
+                    <div class="input-keys">
+                        <div class="function-keys">
+                            <button class="calculator-key key-clear">AC</button>
+                            <button class="calculator-key key-old">old</button>
+                            <button class="calculator-key key-modern">mdrn</button>
+                        </div>
+                        <div class="digit-keys">
+                            <button class="calculator-key key-0">0</button>
+                            <button class="calculator-key key-1">1</button>
+                            <button class="calculator-key key-2">2</button>
+                            <button class="calculator-key key-3">3</button>
+                            <button class="calculator-key key-4">4</button>
+                            <button class="calculator-key key-5">5</button>
+                            <button class="calculator-key key-6">6</button>
+                            <button class="calculator-key key-7">7</button>
+                            <button class="calculator-key key-8">8</button>
+                            <button class="calculator-key key-9">9</button>
+                        </div>
+                    </div>
+                    <div class="operator-keys">
+                        <button class="calculator-key key-divide">÷</button>
+                        <button class="calculator-key key-multiply">×</button>
+                        <button class="calculator-key key-subtract">−</button>
+                        <button class="calculator-key key-add">+</button>
+                        <button class="calculator-key key-equals">=</button>
+                    </div>
+                </div>
+            </div>
+            <div class="attribution">Adapted from <a href="https://github.com/kentcdodds/jest-cypress-react-babel-webpack">Kent C. Dodds</a></div>
+        </div>
+    </body>
+</html>

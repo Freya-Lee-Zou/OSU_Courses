@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
+html {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    font-size: 14px;
+    box-sizing: border-box;
+    height: 100%;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    height: 100%;
+}
+
+button {
+    display: block;
+    background: none;
+    border: none;
+    padding: 0;
+    font-family: inherit;
+    user-select: none;
+    cursor: pointer;
+    outline: none;
+
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+button:enabled:active {
+    box-shadow: inset 0px 0px 80px 0px rgba(0, 0, 0, 0.25);
+}
+
+#app {
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-list {
+    font-size: 1.25em;
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+}
+
+.nav-list .nav-item {
+    margin: 0 10px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.4em;
+
+    width: 320px;
+    height: 520px;
+}
+
+form label {
+    display: block;
+    margin: 5px;
+    font-size: 0.8em;
+    /* flex-grow: 1; */
+}
+
+form input {
+    padding: 5px 10px;
+    font-size: 1em;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+form button, #clear-button {
+    font-size: 0.75em;
+    margin: 5px;
+    padding: 8px 24px;
+    border: 1px solid royalblue;
+    border-radius: 4px;
+    background-color: royalblue;
+    color: white;
+    cursor: pointer;
+}
+
+.status {
+    margin: 5px;
+    padding: 8px;
+    border: 1px solid gray;
+    border-radius: 4px;
+}
+
+.error {
+    border-color: crimson;
+    background-color: lightpink;
+    color: firebrick;
+    font-size: 0.75em;
+}
+
+.success {
+    border-color: forestgreen;
+    background-color: lightgreen;
+    color: darkgreen;
+    font-size: 0.75em;
+}
+
+.status h3 {
+    font-size: 1.25em;
+    margin: 0;
+}
+
+.status p {
+    margin: 5px 0 0 0;
+}
+
+.status ul {
+    font-size: 0.875em;
+    margin: 0;
+    padding-left: 24px;
+}

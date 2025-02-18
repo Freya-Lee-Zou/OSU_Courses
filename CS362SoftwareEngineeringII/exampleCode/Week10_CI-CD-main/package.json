@@ -1,0 +1,31 @@
+{
+  "name": "ci-cd",
+  "version": "1.0.0",
+  "description": "Continuous Integration and Continuous Delivery with GitHub Actions",
+  "scripts": {
+    "start": "serve todos -p 3001",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "test:e2e": "start-test start http://localhost:3001 cy:run",
+    "test:integration": "jest",
+    "test": "npm-run-all test:*",
+    "build": "./build.sh"
+  },
+  "author": "Hess <hessro@oregonstate.edu>",
+  "license": "MIT",
+  "dependencies": {
+    "serve": "^14.2.0"
+  },
+  "devDependencies": {
+    "@testing-library/cypress": "^9.0.0",
+    "@testing-library/dom": "^9.3.0",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/user-event": "^14.4.3",
+    "cypress": "^12.12.0",
+    "jest": "^29.5.0",
+    "jest-environment-jsdom": "^29.5.0",
+    "npm-run-all": "^4.1.5",
+    "start-server-and-test": "^2.0.0",
+    "whatwg-fetch": "^3.6.2"
+  }
+}

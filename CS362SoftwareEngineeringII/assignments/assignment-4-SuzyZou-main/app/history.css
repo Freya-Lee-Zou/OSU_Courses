@@ -1,0 +1,13 @@
+#history-list {
+    font-size: 1.25em;
+    padding-left: 40px;
+    margin-left: -40px;
+}
+
+#history-list .no-decoration {
+    list-style-type: none;
+}
+
+#clear-button {
+    font-size: 1em;
+}
