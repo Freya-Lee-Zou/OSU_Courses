@@ -1,0 +1,46 @@
+Dynamic VS Static Typing
+
+eg: if 3 > 4 then "hello" else 16
+Type of x : Int
+Under dynamic typing: Int
+Under static typing : type error
+
+
+Exercise: 
+************What types are setermined for each of **************************
+the follwoing exp[ressions under static and dynamic typing? what is type of x?
+
+eg2: if X < 2 then even x else x 
+Type of x : Int
+Static: Type Error 
+Dynamic: bool if x < 2, otherwise int type of x: Int
+
+eg3: if head x then x else tail
+Static: [Bool]
+Dynamic: [Bool]
+type of x: [Bool]
+
+eg4: if x then x+1 else x-1
+Static: type error
+Dynamic:type error
+Type x: Bool
+
+eg5: if Flase then "hello" else x 
+Type of x:String
+Static: String
+Dynamic: String
+
+eg6: if fst x == 1 then x +1 fst x (fst is tuple)
+Type of x:(Int,a)
+Static: type Error
+Dynamic: int if fst x/=1, otherwise (==1) Type Error 
+
+
+===============Pros and Cons of Static/Dynamic typing============
+
+Static typing prevents type errors
+Dynamic Typing detects type errors
+
+
+
+
