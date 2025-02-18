@@ -1,0 +1,9 @@
+
+ERROR: 0:14: Too many arguments to constructor of 'vec3'
+ERROR: 0:21: Use of undeclared identifier 'SALMONCOLOR'
+ERROR: 0:27: Use of undeclared identifier 'myColor'
+ERROR: 0:37: Use of undeclared identifier 'myColor'
+ERROR: 0:40: Use of undeclared identifier 'myColor'
+ERROR: 0:51: Use of undeclared identifier 'ambient'
+ERROR: 0:51: Use of undeclared identifier 'diffuse'
+
