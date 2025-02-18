@@ -1,0 +1,27 @@
+{
+  "name": "template-assignment-5",
+  "version": "1.0.0",
+  "description": "Handlebars templating",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "build": "handlebars views/partials/leaderboard.handlebars -f public/leaderboard.js",
+    "prestart": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/osu-cs290-f22/template-assignment-5.git"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/osu-cs290-f22/template-assignment-5/issues"
+  },
+  "homepage": "https://github.com/osu-cs290-f22/template-assignment-5#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-handlebars": "^6.0.6",
+    "handlebars": "^4.7.7"
+  }
+}

@@ -1,0 +1,77 @@
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+    margin: 0
+}
+
+body {
+    height: 100vh;
+    background: radial-gradient(circle, rgba(0,96,0,1) 0%, rgba(0,32,0,1) 100%);
+}
+
+.header {
+    z-index: 100;
+    height: 128px;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+}
+
+.title {
+    color: white;
+    font-size: 64px;
+    text-align: center;
+    padding-top: 24px;
+}
+
+.button {
+    background-color: #df3000;
+    border: none;
+    border-radius: 12px;
+    color: black;
+    text-align: center;
+    font-size: 24px;
+    left: 50%;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.button:hover {
+    background-color: #ff3700;
+}
+
+.button-container {
+    margin: 20px;
+    flex-grow: 1;
+    font-size: large;
+    font-family:'Franklin Gothic Medium';
+}
+
+#exit {
+    float: left;
+}
+
+#back {
+    float: right;
+    cursor: pointer;
+}
+
+#table {
+    height: calc(100% - 128px);
+}
+
+.card {
+    height: 256px;
+    width: auto;
+    position: absolute;
+    cursor: move;
+}
+
+#joker {
+    height: 256px;
+    width: auto;
+    position: absolute;
+    cursor: pointer;
+}
+
+#joker-container {
+    position: absolute;
+}

@@ -1,0 +1,67 @@
+<div id="instructions_container" class="hidden text_box">
+		<div class="header">
+			<p id="instructions">Instructions</p>
+			<button id="close_instructions" class="button">&times;</button>
+		</div>
+		<p id="instructions_text">Reser Stadium is packed full of fans, the football teams are ready to play. 
+			But, something doesn't feel right, something is missing. Where is Benny the Beaver?! 
+			You must find him for the football game to start, time is of the essence!
+			<br><br>
+			Benny the Beaver seems to have gotten lost somewhere on campus. 
+			The only way to find him is by unlocking different rooms through puzzles. 
+			In each room, you will be given a choice between 2 doors, with a different puzzle behind each door. 
+			Your objective is to try to choose the right door and solve the puzzle, so you can move onto the next room. 
+			Some doors lead to dead ends, and you will have to go back and try again. 
+			Each room and puzzle you complete gets you one step closer to finding Benny. 
+			There are 3 different puzzles: Find the Joker, Math Problems, and Hangman. 
+			The objective of this game is to try and find Benny as fast as possible. 
+			We will give you one hint, and one hint only:
+			<br><br>
+			<em>The words for Hangman have something to do with the material we have learned in class.</em>
+		</p>
+	</div>
+	<div id="about_container" class="hidden text_box">
+		<div class="header">
+			<p id="about">About</p>
+			<button id="close_about" class="button">&times;</button>
+		</div>
+		<p class="about_text">This game was a montage of ideas from 4 separate people, all merged into one. 
+			The engineers behind this project are:</p>
+			<ul id="engineers">
+				<li>Ali Akturin (Github: ali-akturin)</li>
+				<li>Claire Follett (Github: Clairefollett)</li> 
+				<li>Jakob Peters (Github: jakobjpeters)</li>
+				<li>Suzy Zou (Github: SuzyZou)</li>
+			</ul>
+			<br>
+		<p class="about_text">We all focused on different areas of the project, and put it all together. 
+			All 4 of us are interested in a Computer Science degree. 
+			Ali is a sophmore, studying CS and is interested in the Mobile Development track,
+			Suzy and Jakob both have previous degrees, and are doing the CS Postbaccalaureate Degree,
+			and Claire is a Junior, studying CS and is interested in the Artificial Intelligence track.
+		</p>
+	</div>
+	<aside class="sidebar">
+		<h1 class="glowing">Leaderboard</h1>
+		<ol type="1" id="leaderboard">
+			{{#each scores}}
+                {{> leaderboard}}
+            {{/each}}
+		</ol>	
+    </aside>
+	<section>
+	<div class="container">
+        <div class="center-text">
+            <h1 id="title" class="glowing">Find Benny</h1>
+			<a href="doors.html" id="start_game_button" class="button">Start Game</a>
+			<br>
+			<button id="instructions_button" class="button">Instructions</button>
+			<br>
+			<button id="about_button" class="button">About</button>
+			<br>
+        </div>
+	</div>
+	</section>
+</div>
+<script type="text/javascript" src="particles.js"></script>
+<script type="text/javascript" src="custom.js"></script>

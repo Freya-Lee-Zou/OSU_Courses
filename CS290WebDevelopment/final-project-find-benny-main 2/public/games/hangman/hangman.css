@@ -1,0 +1,116 @@
+/* background image from open source library https://unsplash.com/photos/b4focsAUALE */
+
+body {
+    background-image: url('./forest.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+}
+
+h1 {
+    text-shadow: 1px 1px 0px grey, 
+    1px 2px 0px black, 
+    1px 3px 0px #262b2f, 
+    1px 4px 0px #2a293e, 
+    1px 5px 0px #000133, 
+    1px 6px 0px #033500;
+    font-size: 70px;
+    font-weight: 600;
+    font-family: 'Roboto', sans-serif;
+    color: whitesmoke;
+    text-transform: uppercase;
+}
+
+#title-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#game_elements {
+    text-align: center;
+}
+
+.letter_button {
+    width: 38px;
+    height: 38px;
+    font-size: 14pt;
+}
+
+#display_player_array {
+    font-family: 'Raleway', sans-serif;
+    font-size: 50pt;
+    color: white;
+}
+
+#display_guesses_remaining {
+    font-family: 'Raleway', sans-serif;
+    font-size: 14pt;
+    margin-top: 15px;
+    color: wheat;
+    margin-bottom: 15px;
+}
+
+#letter_buttons {
+    margin: auto;
+    width: 550px;
+    padding-bottom: 50px;
+}
+
+.button-container {
+    margin: 20px;
+    flex-grow: 1;
+    font-size: large;
+    font-family:'Franklin Gothic Medium';
+}
+
+.button {
+    border: none;
+    text-align: center;
+    font-size: 24px;
+    left: 50%;
+    padding: 10px;
+    text-decoration: none;
+    margin: auto;
+    border-radius:16px;
+    background-color: transparent;
+    color: whitesmoke;
+    font-weight:normal;
+    opacity:1;
+    transition:1s;
+}
+
+.button:hover {
+    cursor:pointer; 
+    background-color:#F9F9F9;
+    opacity:0.5;
+    transition:1s;
+    color:#EE630B;
+}
+
+#exit {
+    float: left;
+}
+
+#back {
+    float: right;
+    cursor: pointer;
+    
+}
+
+#end_of_game_msg {
+    color: #FF0000;
+    font-family: 'Franklin Gothic Medium';
+    font-size: 30px;
+    font-weight: 500;
+    text-shadow: .08em 0 black, 
+    0 0.08em black, 
+    -0.08em 0 black, 
+    0 -0.08em black, 
+    -0.08em -0.08em black, 
+    -0.08em 0.08em black, 
+    0.08em -0.08em black, 
+    0.08em 0.08em black;
+    margin: auto;
+    padding-bottom: 47px;
+    width: 600px;
+}

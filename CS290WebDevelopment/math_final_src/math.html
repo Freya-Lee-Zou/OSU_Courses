@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Math Game</title>
+    <!-- Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="math.css" />
+    <script src ="particles.js" charset="utf-8" defer></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+  </head>
+  <body>
+    
+    <audio controls autoplay> <source src="backgroundMusic.mp3" type="audio/mpeg"></audio>
+    <div class="fraction">score: 0</div>
+    <div class="container">
+  
+      <h3>Fill in an operator or a number in the blank</h3>
+      <div id="question"></div>
+      <button id="submit-btn">Submit</button>
+      <p id="error-msg"></p>
+    </div>
+    <div class="controls-container">
+      <h1 class="text_shadows">Welcome to the math world</h1>
+      <p id="result"></p>
+      <input type="text" id="username" placeholder="Enter One User Name">
+     
+      <button id="start-btn">Start Game</button>
+      <button id="exit-btn">Exsit Game</button>
+      
+    </div>
+
+    <div class="listDesc">
+        <h3>Ranking List</h3>
+        <input type="text" id="search" onkeyup="inputChange()" class="search" placeholder="Enter Key">
+        <div class="listBox">
+          <p><span>miss</span><span>50</span></p>
+        </div>
+    </div>
+
+    <section class="stage stage0">
+      <figure class="ball bubble">
+      </figure>
+    </section>
+    <section class="stage stage1">
+      <figure class="ball bubble">
+      </figure>
+    </section>
+    <section class="stage stage2">
+      <figure class="ball bubble">
+      </figure>
+    </section>
+    <!-- Script -->
+    <script src="math.js"></script>
+
+    <script>
+      
+      
+      // document.getElementsByClassName("listBox")[0].innerHTML = html
+
+      let url = "http://localhost:3000/list"
+      
+      var httpRequest = new XMLHttpRequest();
+
+      var RanList = []
+      
+      httpRequest.open('POST', url, true); 
+     
+      httpRequest.setRequestHeader("Content-type", "application/json");
+      const obj = {
+        
+      }
+      httpRequest.send(JSON.stringify(obj)); 
+
+      httpRequest.onreadystatechange = function () {
+        if (httpRequest.readyState === 4 && httpRequest.status === 200) {
+          var json = httpRequest.responseText;
+          let arr = JSON.parse(json)
+          console.log(arr);
+          let html = ""
+          arr.data.sort(sortId)
+          RanList = arr.data
+          arr.data.forEach(el => {
+            
+            if(el.name == "") {
+              return
+            }
+            console.log(el);
+            html += `<p><span>${el.name}</span><span>${el.fraction}</span></p>`
+          })
+
+          document.getElementsByClassName("listBox")[0].innerHTML = html
+        }
+      };
+
+
+      // let searchDom = document.getElementById("search")
+
+      // searchDom.onchange(function() {
+      //   // console.log();
+      //   console.log(12321);
+      // })
+      
+
+      function inputChange() {
+        let key = document.getElementById("search").value
+        let html = ""
+        if(key == "") {
+          RanList.forEach(el => {
+            
+            if(el.name == "") {
+              return
+            }
+            console.log(el);
+            html += `<p><span>${el.name}</span><span>${el.fraction}</span></p>`
+          })
+
+          document.getElementsByClassName("listBox")[0].innerHTML = html
+          return 
+        }
+        
+        RanList.forEach(el => {
+          if(el.name == "") return
+          if(el.name.indexOf(key) != -1) {
+            html += `<p><span>${el.name}</span><span>${el.fraction}</span></p>`
+          }
+          
+        })
+        document.getElementsByClassName("listBox")[0].innerHTML = html
+      }
+
+
+      function sortId(a, b) {
+        return  b.fraction - a.fraction;
+      }
+
+    </script>
+  </body>
+</html>

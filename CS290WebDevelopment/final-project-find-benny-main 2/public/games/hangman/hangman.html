@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Hangman</title>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200&family=Roboto:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+      <link rel="stylesheet" type="text/css" href="hangman.css">
+      <link rel="stylesheet" href="../../stopwatch/stopwatch.css">
+      <script src="../../stopwatch/stopwatch.js" charset="utf-8" defer></script>
+      <script src="../../back.js" charset="utf-8" defer></script>
+    </head>
+    <body>
+      <div class="wrapper">
+        <p class="time">
+            <span id="minutes">00</span>:<span id="seconds">00</span>
+        </p>
+         <!-- Top Button -->
+         <label class="btn red" for="reset"></label>
+         <span class="ring"></span>
+         <div class="btn"></div>
+         
+         <!-- Right Button -->
+         <label class="btn right blue" for="start"></label>   
+         <div class="btn right"></div>
+         
+         <!-- Left Button -->
+         <label class="btn left black" for="stop"></label>
+         <div class="btn left"></div>
+    </div>
+      <main id="game_elements">
+        <div id="title-container">
+          <div class="button-container">
+            <a id="exit" class="button" href="/">Exit Game</a>
+          </div>
+          <h1>Hangman</h1>
+          <div class="button-container">
+            <a id="back" class="button">Previous Room</a>
+          </div>
+        </div>
+
+        <div id="end_of_game_msg"></div>
+
+        <canvas id="stage" width="400" height="325"></canvas>
+      
+        <div id="display_player_array"></div>
+        <div id="display_guesses_remaining"></div>
+      
+        <div id="letter_buttons">
+          <button type="button" class="letter_button" name="a" value="a">a</button>
+          <button type="button" class="letter_button" name="b" value="b">b</button>
+          <button type="button" class="letter_button" name="c" value="c">c</button>
+          <button type="button" class="letter_button" name="d" value="d">d</button>
+          <button type="button" class="letter_button" name="e" value="e">e</button>
+          <button type="button" class="letter_button" name="f" value="f">f</button>
+          <button type="button" class="letter_button" name="g" value="g">g</button>
+          <button type="button" class="letter_button" name="h" value="h">h</button>
+          <button type="button" class="letter_button" name="i" value="i">i</button>
+          <button type="button" class="letter_button" name="j" value="j">j</button>
+          <button type="button" class="letter_button" name="k" value="k">k</button>
+          <button type="button" class="letter_button" name="l" value="l">l</button>
+          <button type="button" class="letter_button" name="m" value="m">m</button>
+          <button type="button" class="letter_button" name="n" value="n">n</button>
+          <button type="button" class="letter_button" name="o" value="o">o</button>
+          <button type="button" class="letter_button" name="p" value="p">p</button>
+          <button type="button" class="letter_button" name="q" value="q">q</button>
+          <button type="button" class="letter_button" name="r" value="r">r</button>
+          <button type="button" class="letter_button" name="s" value="s">s</button>
+          <button type="button" class="letter_button" name="t" value="t">t</button>
+          <button type="button" class="letter_button" name="u" value="u">u</button>
+          <button type="button" class="letter_button" name="v" value="v">v</button>
+          <button type="button" class="letter_button" name="w" value="w">w</button>
+          <button type="button" class="letter_button" name="x" value="x">x</button>
+          <button type="button" class="letter_button" name="y" value="y">y</button>
+          <button type="button" class="letter_button" name="z" value="z">z</button>
+        </div>
+
+      </main>
+
+      <script type="text/javascript" src="hangman.js"></script>
+
+    </body>
+</html>

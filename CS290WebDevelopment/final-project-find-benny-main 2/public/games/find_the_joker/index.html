@@ -1,0 +1,51 @@
+
+<!-- 
+Card images source:  
+http://byronknoll.blogspot.com/2011/03/vector-playing-cards.html
+-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+	<title>Find Benny</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="../../stopwatch/stopwatch.css">
+    <script src="../../stopwatch/stopwatch.js" charset="utf-8" defer></script>
+    <script src="../../back.js" charset="utf-8" defer></script>
+    <script src="index.js" charset="utf-8" defer></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <p class="time">
+          <span id="minutes">00</span>:<span id="seconds">00</span>
+      </p>
+       <!-- Top Button -->
+       <label class="btn red" for="reset"></label>
+       <span class="ring"></span>
+       <div class="btn"></div>
+       
+       <!-- Right Button -->
+       <label class="btn right blue" for="start"></label>   
+       <div class="btn right"></div>
+       
+       <!-- Left Button -->
+       <label class="btn left black" for="stop"></label>
+       <div class="btn left"></div>
+  </div>
+    </div>     
+    <div class="header">
+      <div class="button-container">
+        <a id="exit" class="button" href="/">Exit Game</a>
+      </div>
+      <p class="title">Find the Joker</p>
+      <div class="button-container">
+        <a id="back" class="button">Previous Room</a>
+      </div>
+    </div>
+    <div id="table">
+      <a id="joker-container" href="../../doors.html">
+        <img id="joker" class="card" src="cards/black_joker.svg">
+      </a>
+    </div>
+</body>
