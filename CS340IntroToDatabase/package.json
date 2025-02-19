@@ -1,0 +1,19 @@
+{
+  "name": "newstep4",
+  "version": "1.0.0",
+  "description": "Project Step 4-CRUD ",
+  "main": "app.js",
+  "scripts": {
+   
+
+  },
+  "author": "Ya Zou",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-handlebars": "^7.1.1",
+    "forever": "^4.0.3",
+    "handlebars": "^4.7.8",
+    "mysql": "^2.18.1"
+  }
+}

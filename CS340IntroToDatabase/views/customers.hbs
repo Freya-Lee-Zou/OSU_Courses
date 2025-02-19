@@ -1,0 +1,190 @@
+<head>
+  <h1>Customers</h1>
+<body onload="browsePeople()">
+    <nav class="navbar">
+        <ul class = "navlist">
+            <li class = "home"><a href="/">Home</a> </li>
+            <li class = "add_item_link"><a href="/">Customers</a></li>
+            <li class = "add_order_link"><a href = "/orders">Orders</a></li>
+            <li class = "add_order_link"><a href = "/items">Items</a></li> 
+            <li class = "add_order_link"><a href = "/reviews">Reviews</a></li>
+            <li class = "add_order_link"><a href = "/categories">Categories</a></li>
+        </ul>
+
+    </nav>
+<body>
+  <script language="JavaScript">
+
+
+  function showform(dowhat) {
+    /*
+    * four DIVS: browse, insert, update, delete
+    * this function sets one visible the others not
+    */
+    if (dowhat == 'insert'){
+      document.getElementById('browse').style.display = 'none';
+      document.getElementById('insert').style.display = 'block';
+      document.getElementById('delete').style.display = 'none';
+    }
+    else if (dowhat == "search"){
+      document.getElementById('browse').style.display = 'none';
+      document.getElementById('insert').style.display = 'none';
+      document.getElementById('search').style.display = 'block';
+      document.getElementById('delete').style.display = 'none';
+    }
+    else if (dowhat == 'update'){
+      document.getElementById('browse').style.display = 'none';
+      document.getElementById('insert').style.display = 'none';
+      document.getElementById('delete').style.display = 'none';
+    }
+    else if (dowhat == 'delete'){
+      document.getElementById('browse').style.display = 'none';
+      document.getElementById('insert').style.display = 'none';
+      document.getElementById('delete').style.display = 'block';
+    }
+
+    else { //by default display browse
+      document.getElementById('browse').style.display = 'block';
+      document.getElementById('insert').style.display = 'none';
+      document.getElementById('search').style.display = "none";
+      document.getElementById('delete').style.display = 'none';
+    }
+  }
+  function newPerson() { showform('insert'); }
+  function searchCustomer() { showform('search'); }
+  function deletePerson(pid) { showform ('delete'); }
+  function browsePeople() { showform ('browse'); }
+</script>
+
+
+
+  
+</head>
+  
+  {{!-- buttons on the top of page--}}
+  <div id ="browse">
+    <a href="#" onClick="newPerson()">Add</a>
+    <a href="#" onClick="searchCustomer()">Search</a>
+   <a href="#" onclick="deletePerson('this.personID')">Delete</a>
+  </div>
+        
+<table id= "browse"> 
+    {{!-- Header section --}}
+    <thead >
+        
+        {{!-- For just the first row, we print each key of the row object as a header cell so we
+        know what each column means when the page renders --}}
+        <tr>
+            {{#each data.[0]}}
+            <th>
+                {{@key}}
+            </th>
+            {{/each}}
+        </tr>
+    </thead>
+
+    {{!-- Body section --}}
+    <tbody>
+
+        {{!-- For each row, print the id, fname, lname, homeworld and age, in order --}}
+        {{#each data}}
+        <tr>
+            <td>{{this.customerID}}</td>
+            <td>{{this.firstName}}</td>
+            <td>{{this.lastName}}</td>
+            <td>{{this.emailAddress}}</td>
+            <td>{{this.address}}</td>
+            <td>{{this.city}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+
+<!--Searching A customer -->
+<div id="search"   style="display: block" >           
+  <form method="POST" id="searchCustomer" action = "/searchCustomer">
+      <legend><strong>Search A Customer</strong></legend>
+        <fieldset class="fields" id="addperson">
+        <label> Last Name: </label> <input type="text" name="lname">       
+       </fieldset>
+         <input class="btn" type="submit" id="addPerson" value="Search">
+        <input class="btn" type="button" value="cancel" onClick="browsePeople()">
+  </form> 
+</div>
+
+
+{{!-- <h2>Adding A Customer </h2> --}}
+<form id="insert" method="POST" action="/add-person-form">
+<fieldset class="fields">
+    <legend><strong>ADD A Customer</strong></legend>
+    <label for="input-fname">First Name: </label>
+    <input type="text" name="input-fname" id="input-fname">
+    
+    <label for="input-lname">Last Name: </label>
+    <input type="text" name="input-lname" id="input-lname">
+
+   <label for="input-emailAdress">emailAddress: </label>
+    <input type="text" name="input-emailAdresses" id="input-emailAdresses">
+
+    <label for="input-address">address: </label>
+    <input type="text" name="input-address" id="input-address">
+
+    <label for="input-city">city: </label>
+    <input type="text" name="input-city" id="input-city">
+   </fieldset>
+    <input class="btn" type="submit" id="addPerson" value="Add">
+     <input class="btn" type="button" value="cancel" onClick="browsePeople()">
+</form>
+</div>
+
+
+
+
+{{!-- deleting A Customer --}}
+<div id="delete" style="display: block">
+  <form method="POST" id="deleteCustomer" action="/deleteCustomer">
+      <legend><strong>Delete A Customer</strong></legend>
+          <fieldset class="fields">
+          <p>Are you sure you wish to delete the following?</p>
+          <label><strong>CustomerID:</strong> </label>
+           <select name="delete-customer" id="delete-customer">
+            {{#each data}}
+            <option value="{{this.customerID}}">{{this.customerID}}</option>
+            {{/each}}
+        </select>
+          </label>     
+    </fieldset>
+    <input class="btn" type="submit" id="DeletePerson" value="Delete">
+    <input class="btn" type="button" value="cancel" onClick="browsePeople()">
+  </form> 
+</div>
+
+
+{{!-- Updata A Customer
+<div id="update">
+  <form method="POST" id="addPlanet">
+      <legend><strong>Update Customer</strong></legend>
+        <fieldset class="fields"> 
+         <label><strong>CustomerID:</strong> </label>
+           <select name="delete-customer" id="delete-customer">
+            {{#each data}}
+           <option value="{{this.customerID}}">{{this.customerID}}</option>
+            {{/each}}
+        </select>
+          </label>     
+          <label> first name </label> <input type="text" name="lname">   </label>
+          <label> last name </label> <input type="text" name="lname">   </label>
+          <label> city </label> <input type="text" name="city"></input>  </label>
+          <label> email address </label> <input type="text" name="emailaddr">  </label>
+          <label> address </label> <input type="text" name="address">   </label>
+          
+    </fieldset>
+        <input class="btn" type="submit" id="addPerson" value="Update">
+        <input class="btn" type="button" value="cancel" onClick="browsePeople()">
+</form> 
+</div><!-- insert --> --}}
+
+
+<script src ="./js/addCustomer.js">  </script> 
+

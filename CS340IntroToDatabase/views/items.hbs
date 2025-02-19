@@ -1,0 +1,190 @@
+<head>
+  <h1>Items</h1>
+<body onload="browsePeople()">
+    <nav class="navbar">
+        <ul class = "navlist">
+            <li class = "home"><a href="/">Home</a> </li>
+            <li class = "add_item_link"><a href="/">Customers</a></li>
+            <li class = "add_order_link"><a href = "/orders">Orders</a></li>
+            <li class = "add_order_link"><a href = "/items">Items</a></li> 
+            <li class = "add_order_link"><a href = "/reviews">Reviews</a></li>
+            <li class = "add_order_link"><a href = "/categories">Categories</a></li>
+        </ul>
+    </nav>
+<body>
+
+
+      <script language="JavaScript">
+        function showform(dowhat) {
+            /*
+            * four DIVS: browse, insert, update, delete
+            * this function sets one visible the others not
+            */
+            if (dowhat == 'insert'){
+            document.getElementById('browse').style.display = 'none';
+            document.getElementById('insert').style.display = 'block';
+            document.getElementById('update').style.display = 'none';
+            document.getElementById('delete').style.display = 'none';
+            }
+            else if (dowhat == 'update'){
+            document.getElementById('browse').style.display = 'none';
+            document.getElementById('insert').style.display = 'none';
+            document.getElementById('update').style.display = 'block';
+            document.getElementById('delete').style.display = 'none';
+            }
+            else if (dowhat == 'delete'){
+            document.getElementById('browse').style.display = 'none';
+            document.getElementById('insert').style.display = 'none';
+            document.getElementById('update').style.display = 'none';
+            document.getElementById('delete').style.display = 'block';
+            }
+            else { //by default display browse
+            document.getElementById('browse').style.display = 'block';
+            document.getElementById('insert').style.display = 'none';
+            document.getElementById('update').style.display = 'none';
+            document.getElementById('delete').style.display = 'none';
+            }
+        }
+        function newPerson() { showform('insert'); }
+        function updatePerson(pid) { showform('update'); }
+        function deletePerson(pid) { showform ('delete'); }
+        function browsePeople() { showform ('browse'); }
+       
+    </script> 
+
+</head>
+
+ {{!-- buttons on the top of the page --}}
+ <div id ="browse">
+    <td><a href="#" onClick="newPerson()">Add</a></td>
+    {{!-- <td><a href="#" onClick="searchCustomer()">Search</a></td> --}}
+    <td><a href="#" onclick="deletePerson('this.personID')">Delete</a></td>
+    <td><a href="#" onClick="updatePerson('this.personID')">Update</a></td> 
+</div>
+
+
+
+<table id= "browse"> 
+    {{!-- Header section --}}
+    <thead >
+        {{!-- For just the first row, we print each key of the row object as a header cell so we
+        know what each column means when the page renders --}}
+        <tr>
+            {{#each Items.[0]}}
+            <th>
+                {{@key}}
+            </th>
+            {{/each}}
+        </tr>
+    </thead>
+
+    {{!-- Body section --}}
+    <tbody>
+
+        {{!-- For each row, print the id, fname, lname, homeworld and age, in order --}}
+        {{#each Items}}
+        <tr>
+            <td>{{this.itemID}}</td>
+            <td>{{this.reviewID}}</td>
+            <td>{{this.categoryID}}</td>
+            <td>{{this.itemName}}</td>
+            <td>{{this.price}}</td>    
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+
+<!--insert An Item -->
+<div id ="items-table">
+<form id="insert" method="POST" action="/add-item-form">
+<fieldset class="fields">
+    <legend><strong>ADD An Item </strong></legend>
+        <label><strong>reviewID:</strong> </label>
+           <select name="input-reviewID" id="input-reviewID">
+                {{#each Reviews}}
+                <option value="{{this.reviewID}}">{{this.reviewID}}</option></a>
+                {{/each}}
+           </select>
+        </label>    
+    
+     <label><strong>categoryID:</strong> </label>
+           <select name="input-categoryID" id="input-categoryID">
+                {{#each Categories}}
+                <option value="{{this.categoryID}}">{{this.categoryID}}</option></a>
+                {{/each}}
+           </select>
+
+    <label for="input-item-name">itemName: </label>
+    <input type="text" name="input-item-name" id="input-item-name">
+
+     <label for="input-price">price: </label>
+    <input type="text" name="input-price" id="input-price">
+
+   </fieldset>
+    <input class="btn" type="submit" id="addPerson" value="Add">
+     <input class="btn" type="button" value="cancel" onClick="browsePeople()">
+</form>
+</div>
+
+<!--Update An Item -->
+<form id="update" method="POST" action="/update-item">
+<fieldset class="fields">
+    <legend><strong>Update An Item </strong></legend>
+         <label><strong>itemID:</strong> </label>
+           <select name="update-itemID" id="update-itemID">
+            <option value="test">Select an item</option>
+                {{#each Items}}
+                <option value="{{this.itemID}}">{{this.itemID}}</option>
+                {{/each}}
+           </select>
+       
+        <label><strong>reviewID:</strong> </label>
+           <select name="update-reviewID" id="update-reviewID">
+            <option value="test">Select reviewID</option>
+                {{#each Items}}
+               <option value="{{this.reviewID}}">{{this.reviewID}}</option></a>
+                {{/each}}
+           </select>
+        </label>    
+    
+        <label><strong>categoryID:</strong> </label>
+           <select name="update-categoryID" id="update-categoryID">
+            <option value="test">Select categoryID</option>
+                {{#each Items}}
+             <option value="{{this.categoryID}}">{{this.categoryID}}</option>
+                {{/each}}
+           </select>
+
+    <label for="input-item-name">itemName: </label>
+    <input type="text" name="input-item-name" id="input-item-name">
+
+     <label for="input-price">price: </label>
+    <input type="text" name="input-price" id="input-price">
+
+   </fieldset>
+    <input class="btn" type="submit" id="addPerson" value="Update">
+     <input class="btn" type="button" value="cancel" onClick="browsePeople()">
+</form>
+</div>
+
+
+{{!-- Delete an item --}}
+<div id="delete" style="display: block">
+  <form method="POST" id="deleteItem" action="/deleteItem">
+      <legend><strong>Delete An item </strong></legend>
+          <fieldset class="fields">
+          <p>Are you sure you wish to delete the following?</p>
+          <label><strong>itemID:</strong></label>
+           <select name="input-item" id="input-item">
+                {{#each Items}}
+                <option value="{{this.itemID}}">{{this.itemName}}({{this.itemID}})</option>
+                {{/each}}
+           </select>
+        </label>     
+    </fieldset>
+    <input class="btn" type="submit" id="DeletePerson" value="Delete">
+    <input class="btn" type="button" value="cancel" onClick="browsePeople()">
+  </form> 
+</div>
+

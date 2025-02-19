@@ -1,0 +1,112 @@
+<head>
+  <h1>Reviews</h1>
+<body onload="browsePeople()">
+    <nav class="navbar">
+        <ul class = "navlist">
+            <li class = "home"><a href="/">Home</a> </li>
+            <li class = "add_item_link"><a href="/">Customers</a></li>
+            <li class = "add_order_link"><a href = "/orders">Orders</a></li>
+            <li class = "add_order_link"><a href = "/items">Items</a></li> 
+            <li class = "add_order_link"><a href = "/reviews">Reviews</a></li>
+            <li class = "add_order_link"><a href = "/categories">Categories</a></li>
+        </ul>
+    </nav>
+<body>
+
+    <script language="JavaScript">
+        function showform(dowhat) {
+            /*
+            * four DIVS: browse, insert, update, delete
+            * this function sets one visible the others not
+            */
+            if (dowhat == 'insert'){
+            document.getElementById('browse').style.display = 'none';
+            document.getElementById('insert').style.display = 'block';
+        
+            }
+            else if (dowhat == 'all'){
+            document.getElementById('browse').style.display = 'block';
+            document.getElementById('insert').style.display = 'block';
+           
+            }
+            else { //by default display browse
+            document.getElementById('browse').style.display = 'block';
+            document.getElementById('insert').style.display = 'none';
+   
+            }
+        }
+        function newPerson() { showform('insert'); }
+        function browsePeople() { showform ('browse'); }
+        function showAll() { showform ('all'); }
+    </script> 
+</head>
+
+
+
+
+ <div id ="browse">
+    <td><a href="#" onClick="newPerson()">Add</a></td>
+
+
+    
+</div>
+
+
+<table id= "browse"> 
+    {{!-- Header section --}}
+    <thead >
+        {{!-- For just the first row, we print each key of the row object as a header cell so we
+        know what each column means when the page renders --}}
+        <tr>
+            {{#each Reviews.[0]}}
+            <th>
+                {{@key}}
+            </th>
+            {{/each}}
+        </tr>
+    </thead>
+
+    {{!-- Body section --}}
+    <tbody>
+
+        {{!-- For each row, print the id, fname, lname, homeworld and age, in order --}}
+        {{#each Reviews}}
+        <tr>
+            <td>{{this.reviewID}}</td>
+            <td>{{this.customerID}}</td>
+            <td>{{this.overallRating}}</td>
+            <td>{{this.feedback}}</td>    
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+
+
+  <!--insert a review-->
+<div id = "insert">
+<form id="add-review-form" method="POST" action="/add-review-form">
+<fieldset class="fields">
+    <legend><strong>ADD A Review </strong></legend>
+       <label><strong>CustomerID:</strong> </label>
+           <select name="input-customerID" id="input-customerID">
+                {{#each Customers}}
+                <option value="{{this.customerID}}"> {{this.firstName}} {{this.lastName}}({{this.customerID}})</option>
+                {{/each}} 
+           </select>
+        </label>      
+
+    <label for="input-overall-rating">overallRating: </label>
+    <input type="text" name="input-overall-rating" id="input-overall-rating">
+
+     <label for="input-feedback">feedback: </label>
+    <input type="text" name="input-feedback" id="input-feedback">
+
+   </fieldset>
+    <input class="btn" type="submit" id="addPerson" value="Add">
+     <input class="btn" type="button" value="cancel" onClick="browsePeople()">
+</form>
+</div>
+
+
+<script src ="./js/addReviews.js">  </script> 
